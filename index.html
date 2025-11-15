@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arafat Ahmed - Mechanical Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #34495e;
+            --highlight-color: #3498db;
+            --bg-color: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--highlight-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--highlight-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--highlight-color);
+            color: white;
+            border: 2px solid var(--highlight-color);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--highlight-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 80px;
+        }
+
+        section h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--highlight-color);
+        }
+
+        section > p {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-color);
+        }
+
+        .stat-number {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 20px var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            color: var(--highlight-color);
+            margin-right: 10px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #f5f5f5;
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Resume Section */
+        .experience-card,
+        .education-card {
+            background: var(--bg-color);
+            border-left: 3px solid var(--highlight-color);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .experience-card h3,
+        .education-card h3 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .experience-card .company,
+        .education-card .institution {
+            color: var(--highlight-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .date,
+        .education-card .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin: 10px 0;
+        }
+
+        .contact-info a {
+            color: var(--highlight-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 4px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .close-button:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-content h2 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2::after {
+            display: none;
+        }
+
+        .modal-section-title {
+            font-family: 'Lora', serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-list li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .modal-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Arafat Ahmed</div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home">
+            <div class="hero">
+                <h1>Arafat Ahmed</h1>
+                <p class="subtitle">Mechanical Research and Innovation Engineer</p>
+                <p class="description">Designing the future through precision engineering, innovative solutions, and sustainable manufacturing. Specializing in computational mechanics, structural analysis, and thermal systems optimization.</p>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-cogs"></i> View Portfolio</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Software Proficiencies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>Engineering Portfolio</h2>
+            <p>Selected mechanical design and engineering projects</p>
+            <div class="card-grid">
+                <div class="card" data-title="3D Printable Miniature Rover" 
+                    data-description="Designed and fabricated a 3D printable rover for traversing uneven terrain with specific dimensions (520mm wheelbase, 368mm track width, 152mm ride height). Components were created and analyzed using SolidWorks and ANSYS, ensuring a factor of safety of 3. Parts were fabricated using a Creality Ender 3 3D printer with PLA+ filaments and assembled with professional-grade adhesive." 
+                    data-tech-stack='<span class="tech-tag">SolidWorks</span><span class="tech-tag">ANSYS</span><span class="tech-tag">CURA</span><span class="tech-tag">Hardware</span>'
+                    data-key-features='["Designed for uneven terrain traversal", "Ensured factor of safety of 3 through analysis", "Utilized 3D printing for fabrication"]'
+                    data-challenges-solutions='["Challenge: Ensuring structural integrity for uneven terrain. Solution: Detailed FEA in ANSYS and material selection (PLA+).", "Challenge: Precision in 3D printing for assembly. Solution: Optimized CURA settings and professional adhesive for assembly."]'>
+                    <h3><i class="fas fa-robot card-icon"></i>3D Printable Miniature Rover</h3>
+                    <p>Designed and fabricated a 3D printable rover for traversing uneven terrain, ensuring high structural integrity and precision assembly through FEA and optimized manufacturing.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">ANSYS</span>
+                        <span class="tech-tag">CURA</span>
+                        <span class="tech-tag">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="card" data-title="Non-Pneumatic Tire Design" 
+                    data-description="Designed a 3D printable honeycomb wheel with a hexagonal structure for optimized strength and weight using the Tangent method. Conducted stress analysis using ANSYS Workbench to evaluate durability and load-bearing capacity. Fabricated the wheel using a Creality Ender 3 3D printer with PLA+ filament and a 40% infill rate." 
+                    data-tech-stack='<span class="tech-tag">SolidWorks</span><span class="tech-tag">ANSYS</span><span class="tech-tag">CURA</span><span class="tech-tag">Hardware</span>'
+                    data-key-features='["Optimized for strength-to-weight ratio", "Hexagonal honeycomb structure for durability", "3D printable design for rapid prototyping"]'
+                    data-challenges-solutions='["Challenge: Balancing strength and weight. Solution: Applied Tangent method for design and ANSYS for stress analysis.", "Challenge: Material properties for load-bearing. Solution: Used PLA+ filament with 40% infill for optimal performance."]'>
+                    <h3><i class="fas fa-tire card-icon"></i>Non-Pneumatic Tire Design</h3>
+                    <p>Developed a 3D printable honeycomb wheel, optimizing its structure for strength and weight through advanced design and stress analysis methodologies.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">ANSYS</span>
+                        <span class="tech-tag">CURA</span>
+                        <span class="tech-tag">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="card" data-title="Environmental Control System" 
+                    data-description="Designed an Environmental Control System (ECS) for a small room to control temperature and smoke levels. Created a data acquisition system using NI LABVIEW and designed a logic flow diagram for the controlled environment. Built and assembled the ECS hardware, including sensors, actuators, and electric circuits, within an acrylic box. Tested and validated the system's functionality, ensuring effective control of temperature and smoke levels." 
+                    data-tech-stack='<span class="tech-tag">SolidWorks</span><span class="tech-tag">NI Labview</span><span class="tech-tag">Hardware</span><span class="tech-tag">Control Systems</span>'
+                    data-key-features='["Automated temperature and smoke control", "Integrated data acquisition via NI LABVIEW", "Compact hardware assembly in acrylic box"]'
+                    data-challenges-solutions='["Challenge: Accurate sensor integration and calibration. Solution: Developed precise logic flow diagrams and validated with real-time data.", "Challenge: Ensuring effective control within a small room. Solution: Optimized sensor placement and actuator response for precise environmental regulation."]'>
+                    <h3><i class="fas fa-fan card-icon"></i>Environmental Control System</h3>
+                    <p>Engineered an automated system for precise control of temperature and smoke levels, integrating hardware and software for comprehensive environmental management.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">NI Labview</span>
+                        <span class="tech-tag">Hardware</span>
+                        <span class="tech-tag">Control Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>Professional Experience & Education</h2>
+            
+            <div class="experience-card">
+                <h3>Research and Innovation Engineer</h3>
+                <p class="company">Walton Hi-Tech Industries PLC, Compressor Division</p>
+                <p class="date">October 2024 - Present</p>
+                <ul>
+                    <li>Working in the Design and Advanced Research team focusing on hermetic reciprocating compressors</li>
+                    <li>Leading design analysis of suction mufflers with an emphasis on acoustic and flow performance optimization</li>
+                    <li>Conducting vibration and noise characterization of compressor shells under varying RPMs using FFT analysis</li>
+                    <li>Performing simulations in Ansys Workbench for dynamic and structural performance of internal components</li>
+                    <li>Collaborating with cross-functional teams to propose design improvements for energy efficiency and noise reduction</li>
+                </ul>
+            </div>
+
+            <h2 style="margin-top: 60px;">Education</h2>
+            
+            <div class="education-card">
+                <h3>B.Sc in Mechanical Engineering</h3>
+                <p class="institution">Islamic University of Technology (IUT)</p>
+                <p class="date">Graduated: July 2024 | CGPA: 3.47/4.0</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Higher Secondary Certificate (Science)</h3>
+                <p class="institution">Police Lines School and College (PLSCR)</p>
+                <p class="date">July 2019 | GPA: 5.0/5.0</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Secondary School Certificate (Science)</h3>
+                <p class="institution">Rangpur Zilla School (RZS)</p>
+                <p class="date">July 2017 | GPA: 5.0/5.0</p>
+            </div>
+
+            <h2 style="margin-top: 60px;">Technical Skills</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">C</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">MATLAB</span>
+                <span class="tech-tag">ANSYS APDL</span>
+                <span class="tech-tag">SolidWorks</span>
+                <span class="tech-tag">AutoCAD</span>
+                <span class="tech-tag">Ansys Workbench</span>
+                <span class="tech-tag">Arduino-IDE</span>
+                <span class="tech-tag">CURA</span>
+                <span class="tech-tag">KeyShot</span>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="Arafat_Ahmed_Academic_CV_updated.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+            </div>
+        </section>
+
+        <!-- Co-Curricular Activities -->
+        <section id="activities">
+            <h2>Co-Curricular Activities</h2>
+            <p>Leadership and technical contributions in academic environments</p>
+            <div class="card-grid">
+                <div class="card" data-title="Project Altair | Lead Mechanical Team" 
+                    data-description="Led the design and fabrication of robotic vehicles, ensuring high standards of quality and performance. Researched the market to find available parts and resources, assigned tasks, tracked progress, and ensured the project was completed on time. Prepared detailed technical and financial documentation for project submissions." 
+                    data-tech-stack='<span class="tech-tag">Robotics</span><span class="tech-tag">Project Management</span><span class="tech-tag">Fabrication</span>'
+                    data-key-features='["Led design and fabrication of robotic vehicles", "Managed project timeline and resources", "Prepared technical and financial documentation"]'
+                    data-challenges-solutions='["Challenge: Ensuring high quality and performance under tight deadlines. Solution: Implemented rigorous design reviews and iterative prototyping.", "Challenge: Sourcing optimal parts and resources. Solution: Conducted extensive market research and supplier evaluations."]'>
+                    <h3><i class="fas fa-rocket card-icon"></i>Project Altair - Lead Mechanical Team</h3>
+                    <p>Led the design and fabrication of robotic vehicles, managing project timelines and preparing comprehensive documentation.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">April 2023 - June 2024</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Robotics</span>
+                        <span class="tech-tag">Project Management</span>
+                        <span class="tech-tag">Fabrication</span>
+                    </div>
+                </div>
+
+                <div class="card" data-title="IUT Mars Rover Lead" 
+                    data-description="Led the team for international robotics competitions, assigning tasks, ensuring communication, and tracking the progress of all sub-teams. Led the design and fabrication of robotic vehicles, ensuring high standards of quality and performance. Prepared detailed technical and financial documentation for project submissions." 
+                    data-tech-stack='<span class="tech-tag">Robotics</span><span class="tech-tag">Team Leadership</span><span class="tech-tag">Competition</span>'
+                    data-key-features='["Led international robotics competition team", "Oversaw design and fabrication of robotic vehicles", "Managed inter-team communication and progress tracking"]'
+                    data-challenges-solutions='["Challenge: Coordinating multiple sub-teams for complex robotics project. Solution: Established clear communication channels and regular progress meetings.", "Challenge: Meeting competition performance standards. Solution: Focused on robust design, rigorous testing, and iterative improvements."]'>
+                    <h3><i class="fas fa-globe card-icon"></i>IUT Mars Rover Lead</h3>
+                    <p>Led the IUT Mars Rover team for international robotics competitions, overseeing design, fabrication, and team coordination.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">December 2022 - March 2023</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Robotics</span>
+                        <span class="tech-tag">Team Leadership</span>
+                        <span class="tech-tag">Competition</span>
+                    </div>
+                </div>
+
+                <div class="card" data-title="IUT CAD SOCIETY Chief Simulation Instructor" 
+                    data-description="Provided comprehensive Ansys Workbench simulation sessions to students, enhancing their understanding and practical skills in finite element analysis and computational fluid dynamics." 
+                    data-tech-stack='<span class="tech-tag">ANSYS Workbench</span><span class="tech-tag">Teaching</span><span class="tech-tag">FEA</span><span class="tech-tag">CFD</span>'
+                    data-key-features='["Conducted Ansys Workbench training sessions", "Improved student simulation skills", "Focused on FEA and CFD applications"]'
+                    data-challenges-solutions='["Challenge: Explaining complex simulation concepts to diverse student levels. Solution: Developed simplified examples and hands-on exercises.", "Challenge: Ensuring practical application of theoretical knowledge. Solution: Integrated real-world case studies into training modules."]'>
+                    <h3><i class="fas fa-chalkboard-teacher card-icon"></i>Chief Simulation Instructor</h3>
+                    <p>Instructed Ansys Workbench simulation sessions, fostering practical skills in FEA and CFD among students at IUT CAD Society.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">December 2022 - July 2024</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">ANSYS Workbench</span>
+                        <span class="tech-tag">Teaching</span>
+                        <span class="tech-tag">FEA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research">
+            <h2>Academic Research</h2>
+            <p>Focused studies in computational mechanics and thermal systems</p>
+            <div class="card-grid">
+                <div class="card" data-title="Flow-Induced Vibration Mitigation in Pipe Elbows" 
+                    data-description="Conducted a detailed study on mitigating flow-induced vibration (FIV) in pipelines through optimal clamping positions and numbers using Ansys Workbench
